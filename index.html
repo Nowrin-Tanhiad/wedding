@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lalon &amp; Saria — Our Fairy Tale</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:url(assets/paper.jpg);--cover:url(assets/book.png);--gold:#e9c46a;--wine:#5a0a16;--ink:#5a3a1e;
+--iw:min(100vw,66.66vh);--bw:min(86vw,78vh*.738);
+--script:'Great Vibes','Snell Roundhand','Brush Script MT',cursive;--serif:'Cormorant Garamond',Georgia,'Times New Roman',serif}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;overflow:hidden;background:#170305;font-family:var(--serif);color:var(--ink)}
+@supports(height:100dvh){:root{--iw:min(100vw,66.66dvh);--bw:min(86vw,78dvh*.738)}}
+#s2{position:fixed;inset:0;background:radial-gradient(circle at 50% 38%,#8a1629 0,#4a0912 55%,#170305 100%);opacity:0;transition:opacity 1.2s;pointer-events:none}
+#s2.on{opacity:1}
+.inv{position:fixed;left:50%;top:50%;width:var(--iw);aspect-ratio:2/3;transform:translate(-50%,-50%);transition:opacity 1s,transform 1.2s;box-shadow:0 0 80px #000}
+.inv.gone{opacity:0;transform:translate(-50%,-50%) scale(1.12);pointer-events:none}
+.inv>img{width:100%;height:100%;display:block}
+.nm{position:absolute;left:0;right:0;text-align:center;font-family:var(--script);color:#5b3a1c;font-size:calc(var(--iw)*.108);line-height:1;transform:translateY(-50%);text-shadow:0 1px 0 rgba(255,255,255,.4)}
+.tt{position:absolute;left:0;right:0;text-align:center;font:italic 500 calc(var(--iw)*.056)/1.35 var(--serif);color:#5b3a1c;transform:translateY(-50%);letter-spacing:.02em}
+.go{position:absolute;left:50%;bottom:3.4%;transform:translateX(-50%);white-space:nowrap;cursor:pointer;font:italic 500 calc(var(--iw)*.04)/1 var(--serif);color:#f6dd9c;padding:.75em 1.7em;border-radius:99px;border:1.5px solid var(--gold);background:linear-gradient(#7d1224,#470710);box-shadow:0 0 0 3px #470710,0 6px 22px rgba(0,0,0,.55),inset 0 0 14px rgba(233,196,106,.25);animation:pulse 2.6s ease-in-out infinite}
+.go:hover{filter:brightness(1.25)}.go:focus-visible,.nav button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+@keyframes pulse{50%{box-shadow:0 0 0 3px #470710,0 0 26px 6px rgba(233,196,106,.55),inset 0 0 14px rgba(233,196,106,.25)}}
+#wand{position:fixed;left:50%;top:50%;height:min(66vh,95vw);aspect-ratio:2/3;margin:calc(min(66vh,95vw)/-2) 0 0 calc(min(66vh,95vw)/-3);opacity:0;transform-origin:22% 92%;pointer-events:none}
+#wand img{width:100%;height:100%;filter:drop-shadow(0 0 18px rgba(255,200,220,.8))}
+#tip{position:absolute;left:71%;top:13%;width:1px;height:1px}
+#flash{position:fixed;inset:0;background:radial-gradient(circle,#fff6d8,#ffcf8a 40%,transparent 70%);opacity:0;pointer-events:none}
+#bw{position:fixed;inset:0;display:none;place-items:center;perspective:2200px}
+.book{position:relative;width:var(--bw);aspect-ratio:.738;transform-style:preserve-3d;transition:transform 1.2s cubic-bezier(.5,0,.2,1);filter:drop-shadow(0 22px 28px rgba(0,0,0,.6));cursor:pointer}
+@media(min-aspect-ratio:1/1){.book.open{transform:translateX(50%)}}
+.leaf{position:absolute;left:0;top:3%;width:94%;height:94%;transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.6,0,.25,1)}
+.leaf.c{top:0;width:100%;height:100%}
+.f,.b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--paper) center/cover;box-shadow:inset 0 0 34px rgba(120,70,20,.45);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:9%}
+.f::after,.b::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(60,30,5,.38),transparent 9%);pointer-events:none}
+.b{transform:rotateY(180deg)}.b::after{background:linear-gradient(270deg,rgba(60,30,5,.38),transparent 9%)}
+.c .f{background:var(--cover) center/100% 100% no-repeat;box-shadow:none;padding:0}.c .f::after{display:none}
+.pol{width:100%;background:#fdf8ec;padding:4% 4% 3%;box-shadow:0 4px 14px rgba(70,35,5,.45);transform:rotate(-1.6deg);position:relative}
+.leaf:nth-child(even) .pol{transform:rotate(1.5deg)}
+.pol::before{content:"";position:absolute;top:-3.5%;left:38%;width:24%;height:6%;background:rgba(233,196,106,.55);transform:rotate(-3deg)}
+.pol img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;filter:sepia(.18) saturate(1.05)}
+.pol img.l{aspect-ratio:1/1;object-position:30% 50%}
+.pol p{font:calc(var(--bw)*.075)/1.1 var(--script);color:var(--ink);padding-top:.35em}
+.ttl{font:calc(var(--bw)*.13)/1.05 var(--script);color:#6b1020}
+.sm{font:italic 500 calc(var(--bw)*.05)/1.4 var(--serif);margin-top:.7em}
+.orn{color:#a4741f;font-size:calc(var(--bw)*.06);margin:.5em 0}
+.q{font:italic 500 calc(var(--bw)*.056)/1.45 var(--serif);max-width:90%;opacity:0;transform:translateY(10px);transition:opacity 1.8s 1s,transform 1.8s 1s}
+.fin .q,.fin .ttl{opacity:1;transform:none}
+.fin .ttl{opacity:0;transition:opacity 1.6s .3s}.fin .ttl{opacity:1}
+#hint{position:fixed;bottom:5vh;left:0;right:0;text-align:center;color:#f6dd9c;font:italic 500 1.25rem var(--serif);opacity:0;transition:opacity 1s;pointer-events:none}
+.nav{position:fixed;bottom:max(14px,env(safe-area-inset-bottom));left:0;right:0;display:none;justify-content:center;gap:12px}
+.nav button{font:italic 500 1.05rem var(--serif);color:#f6dd9c;background:linear-gradient(#7d1224,#470710);border:1.5px solid var(--gold);border-radius:99px;padding:.5em 1.3em;cursor:pointer}
+.nav button:disabled{opacity:.35;cursor:default}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+@media(prefers-reduced-motion:reduce){.go{animation:none}.leaf,.book{transition-duration:.01s}}
+</style></head><body>
+<div id="s2"></div>
+<div class="inv" id="inv"><img src="assets/inv.jpg" alt="Wedding invitation of Lalon and Saria">
+<div class="tt" style="top:31%">Once upon a time…</div><div class="nm" style="top:39.5%">Lalon</div><div class="nm" style="top:52.2%">Saria</div><div class="tt" style="top:69%;font-size:calc(var(--iw)*.043)">a love story written in stardust,<br>and they lived happily ever after</div>
+<button class="go" id="go">Let’s go through a journey</button></div>
+<div id="wand"><img src="assets/wand.png" alt=""><i id="tip"></i></div>
+<div id="flash"></div>
+<div id="bw"><div class="book" id="book">
+<div class="leaf c"><div class="f"></div><div class="b"><div class="ttl">Our Fairy Tale</div><div class="orn">❦</div><div class="sm">Lalon &amp; Saria<br>a love story, told in pictures</div></div></div>
+<div class="leaf"><div class="f"><div class="pol"><img src="assets/p1.jpg" alt="The couple on their wedding day"><p>The day we said forever</p></div></div><div class="b"><div class="ttl">Once upon a time…</div></div></div>
+<div class="leaf"><div class="f"><div class="pol"><img src="assets/p2.jpg" alt="The groom placing a ring"><p>A ring, a promise, a beginning</p></div></div><div class="b"><div class="ttl">Two hearts, one story</div></div></div>
+<div class="leaf"><div class="f"><div class="pol"><img src="assets/p3.jpg" alt="The couple standing together under trees"><p>Our favourite ordinary days</p></div></div><div class="b"><div class="ttl">Every moment, a little magic</div></div></div>
+<div class="leaf"><div class="f"><div class="pol"><img class="l" src="assets/p4.jpg" alt="The couple among golden grass"><p>Wandering through golden fields</p></div></div><div class="b"><div class="ttl">…and the road goes on</div></div></div>
+<div class="leaf" id="last"><div class="f"><div class="ttl">A New Journey Begins</div><div class="orn">✦ ❦ ✦</div><div class="q">May every day ahead be written in stardust: full of laughter, quiet magic, and a love that lives happily ever after.</div><div class="sm" style="opacity:.8">Lalon &amp; Saria</div></div></div>
+</div></div>
+<div class="nav" id="end"><button id="again">Open the book again</button><button id="home">Go to home</button></div>
+<div id="hint">Tap the book to open it</div>
+<div class="nav" id="nav"><button id="pv" aria-label="Previous page">‹ Back</button><button id="nx" aria-label="Next page">Turn the page ›</button></div>
+<canvas id="fx"></canvas>
+<script>
+const $=s=>document.querySelector(s),cv=$('#fx'),cx=cv.getContext('2d'),P=[];let amb=0,W,H;
+function rs(){const d=devicePixelRatio||1;W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0)}rs();addEventListener('resize',rs);
+const C=['#ffd98a','#ffb3c9','#fff4d6','#ffc46b'];
+function burst(x,y,n,sp=7){for(let i=0;i<n;i++){const a=Math.random()*6.28,r=Math.random()*sp;P.push({x,y,vx:Math.cos(a)*r,vy:Math.sin(a)*r-.6,l:1,d:.008+Math.random()*.014,s:3+Math.random()*9,c:C[i%4],g:.05})}}
+function star(x,y,s){cx.beginPath();for(let i=0;i<8;i++){const a=i*Math.PI/4,r=i%2?s*.28:s;cx.lineTo(x+Math.cos(a)*r,y+Math.sin(a)*r)}cx.closePath();cx.fill()}
+(function loop(){cx.clearRect(0,0,W,H);cx.globalCompositeOperation='lighter';
+if(amb&&Math.random()<amb)P.push({x:Math.random()*W,y:-10,vx:(Math.random()-.5),vy:.6+Math.random(),l:1,d:.004,s:3+Math.random()*6,c:C[(Math.random()*4)|0],g:0});
+for(let i=P.length-1;i>=0;i--){const p=P[i];p.x+=p.vx;p.y+=p.vy;p.vy+=p.g;p.vx*=.985;p.l-=p.d;if(p.l<=0||p.y>H+20){P.splice(i,1);continue}cx.globalAlpha=Math.min(1,p.l*1.6);cx.fillStyle=p.c;star(p.x,p.y,p.s*(.4+p.l*.6))}
+cx.globalAlpha=1;cx.globalCompositeOperation='source-over';requestAnimationFrame(loop)})();
+const wait=t=>new Promise(r=>setTimeout(r,t));
+$('#go').onclick=async()=>{
+$('#go').disabled=true;$('#inv').classList.add('gone');$('#s2').classList.add('on');amb=.12;await wait(1100);
+const w=$('#wand'),tip=$('#tip');
+const a=w.animate([{opacity:0,transform:'translateY(60px) rotate(-10deg) scale(.8)'},{opacity:1,transform:'rotate(0)',offset:.18},{transform:'rotate(20deg)',offset:.34},{transform:'rotate(-16deg)',offset:.52},{transform:'rotate(18deg)',offset:.7},{transform:'rotate(-6deg)',offset:.88},{opacity:1,transform:'rotate(4deg) scale(1.06)'}],{duration:3600,fill:'forwards',easing:'ease-in-out'});
+let run=1;a.onfinish=()=>run=0;
+(function t(){if(!run)return;const r=tip.getBoundingClientRect();burst(r.left,r.top,3,3.2);requestAnimationFrame(t)})();
+await a.finished;const r=tip.getBoundingClientRect();burst(r.left,r.top,80,9);burst(W/2,H/2,70,11);
+$('#flash').animate([{opacity:0},{opacity:.9,offset:.3},{opacity:0}],{duration:1100});
+w.animate([{opacity:1},{opacity:0,transform:'rotate(4deg) scale(1.5)'}],{duration:700,fill:'forwards'});
+await wait(450);$('#bw').style.display='grid';
+$('#book').animate([{opacity:0,transform:'scale(.15) rotate(-14deg)'},{opacity:1,transform:'scale(1.06) rotate(2deg)',offset:.7},{opacity:1,transform:'none'}],{duration:1100,easing:'ease-out'});
+burst(W/2,H/2,90,10);await wait(1200);$('#hint').style.opacity=1;$('#nav').style.display='flex';upd()};
+const L=[...document.querySelectorAll('.leaf')],N=5,bk=$('#book');let p=0,busy=0;L.forEach((l,i)=>l.style.zIndex=10-i);
+function upd(){$('#pv').disabled=p==0;$('#nx').textContent=p==0?'Open the book ›':p==N?'Close the book ✦':'Turn the page ›'}
+function go(d){const n=p+d;if(busy||n<0||n>N)return;busy=1;$('#hint').style.opacity=0;
+if(d>0){const l=L[p];l.style.transform='rotateY(-180deg)';setTimeout(()=>l.style.zIndex=20+p,520)}
+else{const l=L[n];l.style.transform='';setTimeout(()=>l.style.zIndex=10-n,520)}
+p=n;bk.classList.toggle('open',p>0);upd();
+const f=p==N;$('#last').classList.toggle('fin',f);if(f){amb=.5;setTimeout(()=>{burst(W/2,H*.45,120,12);burst(W*.25,H*.5,50,8);burst(W*.75,H*.5,50,8)},700)}else amb=.12;
+burst(W/2,H/2,18,6);setTimeout(()=>busy=0,1150)}
+async function closeBook(){if(busy)return;busy=1;$('#nav').style.display='none';$('#last').classList.remove('fin');amb=.12;
+for(let i=N-1;i>=0;i--){const l=L[i];l.style.transform='';setTimeout(()=>l.style.zIndex=10-i,520);burst(W/2,H/2,10,5);await wait(380)}
+p=0;bk.classList.remove('open');upd();await wait(1300);burst(W/2,H/2,70,9);$('#end').style.display='flex';busy=0}
+$('#again').onclick=()=>{$('#end').style.display='none';$('#nav').style.display='flex';go(1)};
+$('#home').onclick=async()=>{$('#end').style.display='none';$('#flash').animate([{opacity:0},{opacity:.8,offset:.4},{opacity:0}],{duration:1000});burst(W/2,H/2,80,10);await wait(450);
+$('#bw').style.display='none';$('#nav').style.display='none';$('#s2').classList.remove('on');$('#inv').classList.remove('gone');$('#go').disabled=false;$('#wand').getAnimations().forEach(a=>a.cancel());amb=0};
+$('#nx').onclick=()=>p==N?closeBook():go(1);$('#pv').onclick=()=>go(-1);
+bk.onclick=e=>{const l=e.target.closest('.leaf');if(!l)return;const i=L.indexOf(l);go(i<p?-1:1)};
+addEventListener('keydown',e=>{if(e.key=='ArrowRight')go(1);if(e.key=='ArrowLeft')go(-1)});
+let sx=0;addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)go(d<0?1:-1)},{passive:true});
+</script></body></html>
